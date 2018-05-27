@@ -6,12 +6,15 @@ class Note extends Component {
     render(){
         return(
             <div className="note">
+                <div className="title">
+                    Job Interview
+                </div>
                 <div className="message">
-                    Call IPS
+                    Don't forget the job interview on friday.
                 </div>
                 <div className="action">
                     <button className="actionEdit"><FaEdit /> </button>
-                    <button className="actionEdit"><FaTrash /> </button>
+                    <button className="actionDelete"><FaTrash /> </button>
                 </div>
             </div>
         )
