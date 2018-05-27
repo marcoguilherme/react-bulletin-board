@@ -7,7 +7,7 @@ body {
   background: #D7A06E
 }
 
-.note {
+.note, .noteForm {
   width: 150px;
   height: 150px;
   overflow: hidden;
@@ -17,6 +17,9 @@ body {
   position: relative;
   float: left;
   margin: 10px 10px;
+}
+.noteForm textarea {
+  width: 95%;
 }
 .title {
   font-weight: 700;
@@ -36,7 +39,7 @@ button {
   border: none;
   font-size: 1.3em;
 }
-.actionEdit {
+.actionEdit, .actionSave {
   background: #0062FF;
 }
 .actionDelete {

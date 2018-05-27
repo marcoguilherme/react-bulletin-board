@@ -5,7 +5,8 @@ class Board extends Component {
     render(){
         return(
             <div className="board">
-                <Note />
+                <Note title="Alimentar os gatos" message="nao esquece do rengar" />
+                <Note title="Alimentar os gatos" message="nao esquece do rengar" />
             </div>
         )
     }
