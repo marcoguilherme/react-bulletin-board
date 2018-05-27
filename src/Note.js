@@ -7,10 +7,8 @@ class Note extends Component {
         return(
             <div className="note">
                 <div className="title">
-                    Job Interview
                 </div>
                 <div className="message">
-                    Don't forget the job interview on friday.
                 </div>
                 <div className="action">
                     <button className="actionEdit"><FaEdit /> </button>
