@@ -11,9 +11,9 @@ class Note extends Component {
         }
         this.edit = this.edit.bind(this);
         this.delete = this.delete.bind(this);
+        this.save = this.save.bind(this);
         this.renderForm = this.renderForm.bind(this);
         this.renderDisplay = this.renderDisplay.bind(this);
-        this.save = this.save.bind(this);
     }
     edit(){
         this.setState({
@@ -23,15 +23,19 @@ class Note extends Component {
     delete(){
         console.log('removed');
     }
-    save(){
-        alert(this._newText.value);
-    }
+    save(e) {
+		e.preventDefault()
+		this.props.onChange(this._newText.value, this.props.index)
+		this.setState({
+			editing: false
+		})
+	}
     renderForm(){
         return(
             <div className="noteForm">
-                <form>
+                <form onSubmit={ this.save }>
                     <textarea ref={ input => this._newText = input } />
-                    <button onClick={ this.save } className="actionSave"><FaFloppyO /></button>
+                    <button className="actionSave"><FaFloppyO /></button>
                 </form>
             </div>
         )
@@ -40,11 +44,8 @@ class Note extends Component {
     renderDisplay(){
         return(
             <div className="note">
-                <div className="title">
-                {this.props.title}
-                </div>
-                <div className="message">
-                {this.props.children}
+                <div className="noteLabel">
+                    {this.props.children}
                 </div>
                 <div className="action">
                     <button onClick={ this.edit } className="actionEdit"><FaEdit /> </button>

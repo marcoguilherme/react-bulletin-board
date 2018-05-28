@@ -21,10 +21,11 @@ body {
 .noteForm textarea {
   width: 95%;
 }
-.title {
+.noteLabel {
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 .action {

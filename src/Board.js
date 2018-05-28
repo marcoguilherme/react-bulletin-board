@@ -8,24 +8,32 @@ class Board extends Component {
             notes: [
                 {
                     id: 1,
-                    title: "Feed dog",
-                    message: "don't forget the water"
+                    note: "Buy a new tv"
                 },
                 {
                     id: 2,
-                    title: "buy food",
-                    message: "6 carrot and potatoes"
+                    note: "buy food",
                 }
             ]
         }
         this.eachNote = this.eachNote.bind(this);
+        this.updateNote = this.updateNote.bind(this);
+    }
+
+    updateNote(newText, i){
+        this.setState(prevState => ({
+            notes: prevState.notes.map(
+                note => (note.id !== i) ? note : {...note, note: newText}
+            )
+        }))
     }
 
     eachNote(note, i){
         return (
-            <Note key={i}
-                  index={i} title={note.title}>
-                  {note.message}
+            <Note key={note.id}
+                  index={note.id}
+                  onChange={this.updateNote}>
+                  {note.note}
             </Note>
         )
     }
