@@ -10,7 +10,7 @@ class Note extends Component {
             editing: false
         }
         this.edit = this.edit.bind(this);
-        this.delete = this.delete.bind(this);
+        this.remove = this.remove.bind(this);
         this.save = this.save.bind(this);
         this.renderForm = this.renderForm.bind(this);
         this.renderDisplay = this.renderDisplay.bind(this);
@@ -20,8 +20,8 @@ class Note extends Component {
             editing: true
         })
     }
-    delete(){
-        console.log('removed');
+    remove(){
+        this.props.onRemove(this.props.index)
     }
     save(e) {
 		e.preventDefault()
@@ -49,7 +49,7 @@ class Note extends Component {
                 </div>
                 <div className="action">
                     <button onClick={ this.edit } className="actionEdit"><FaEdit /> </button>
-                    <button onClick={ this.delete } className="actionDelete"><FaTrash /> </button>
+                    <button onClick={ this.remove } className="actionDelete"><FaTrash /> </button>
                 </div>
             </div>
         )
